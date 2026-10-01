@@ -1,14 +1,14 @@
 {
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
-    "xci_name": "video_stream_v_tpg_0_0",
-    "cell_name": "h_hdmi/v_hdmi_tpg",
+    "xci_name": "video_stream_v_hdmi_tpg_1",
+    "cell_name": "h_sdi/v_sdi_tpg",
     "component_reference": "xilinx.com:ip:v_tpg:8.2",
     "ip_revision": "8",
-    "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_v_tpg_0_0",
+    "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_v_hdmi_tpg_1",
     "parameters": {
       "component_parameters": {
-        "Component_Name": [ { "value": "video_stream_v_tpg_0_0", "resolve_type": "user", "usage": "all" } ],
+        "Component_Name": [ { "value": "video_stream_v_hdmi_tpg_1", "resolve_type": "user", "usage": "all" } ],
         "SAMPLES_PER_CLOCK": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "MAX_COLS": [ { "value": "1920", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "MAX_ROWS": [ { "value": "1080", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -45,7 +45,7 @@
         "IPCONTEXT": [ { "value": "IP_Integrator" } ],
         "IPREVISION": [ { "value": "8" } ],
         "MANAGED": [ { "value": "TRUE" } ],
-        "OUTPUTDIR": [ { "value": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_v_tpg_0_0" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_v_hdmi_tpg_1" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "." } ],
         "SWVERSION": [ { "value": "2025.2" } ],
@@ -97,7 +97,7 @@
             "DATA_WIDTH": [ { "value": "32", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
             "PROTOCOL": [ { "value": "AXI4LITE", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
             "READ_WRITE_MODE": [ { "value": "READ_WRITE", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
-            "FREQ_HZ": [ { "value": "148437500", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_HZ": [ { "value": "297000000", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "ID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "AWUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "ARUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
@@ -117,8 +117,8 @@
             "NUM_READ_OUTSTANDING": [ { "value": "2", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "NUM_WRITE_OUTSTANDING": [ { "value": "2", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "MAX_BURST_LENGTH": [ { "value": "256", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "PHASE": [ { "value": "0.0", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "video_stream_clk_wiz_0_0_logic_clk", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "video_stream_uhdsdi_gt_0_0_intf_0_txoutclk", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "NUM_READ_THREADS": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "NUM_WRITE_THREADS": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "RUSER_BITS_PER_BYTE": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
@@ -152,10 +152,10 @@
           "parameters": {
             "ASSOCIATED_BUSIF": [ { "value": "s_axi_CTRL:m_axis_video", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
             "ASSOCIATED_RESET": [ { "value": "ap_rst_n", "value_src": "constant", "value_permission": "bd", "usage": "all" } ],
-            "FREQ_HZ": [ { "value": "148437500", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "user", "usage": "all" } ],
+            "FREQ_HZ": [ { "value": "297000000", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "user", "usage": "all" } ],
             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "PHASE": [ { "value": "0.0", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "video_stream_clk_wiz_0_0_logic_clk", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "video_stream_uhdsdi_gt_0_0_intf_0_txoutclk", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
@@ -200,9 +200,9 @@
             "HAS_TSTRB": [ { "value": "1", "value_src": "auto", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TKEEP": [ { "value": "1", "value_src": "auto", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TLAST": [ { "value": "1", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "FREQ_HZ": [ { "value": "148437500", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "PHASE": [ { "value": "0.0", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
-            "CLK_DOMAIN": [ { "value": "video_stream_clk_wiz_0_0_logic_clk", "value_src": "ip_propagated", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_HZ": [ { "value": "297000000", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "video_stream_uhdsdi_gt_0_0_intf_0_txoutclk", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "LAYERED_METADATA": [ { "value": "undef", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
             "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
           },
@@ -237,5 +237,5 @@
       }
     }
   },
-  "checksum": "c02faa0c"
+  "checksum": "bcf82b9f"
 }

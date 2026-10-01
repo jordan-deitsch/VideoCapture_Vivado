@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_mdm_1_0",
-    "cell_name": "mdm_1",
+    "cell_name": "h_microblaze/mdm_1",
     "component_reference": "xilinx.com:ip:mdm:3.2",
     "ip_revision": "29",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_mdm_1_0",
@@ -164,5 +164,5 @@
       }
     }
   },
-  "checksum": "ce723c87"
+  "checksum": "68b112b3"
 }

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_rst_clk_wiz_0_100M_0",
-    "cell_name": "rst_clk_wiz_0_100M",
+    "cell_name": "h_microblaze/rst_clk_wiz_0_100M",
     "component_reference": "xilinx.com:ip:proc_sys_reset:5.0",
     "ip_revision": "17",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_rst_clk_wiz_0_100M_0",
@@ -192,5 +192,5 @@
       }
     }
   },
-  "checksum": "7ee94661"
+  "checksum": "77162d0f"
 }

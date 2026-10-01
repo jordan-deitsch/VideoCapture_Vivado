@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_ila_1_0",
-    "cell_name": "ila_vid",
+    "cell_name": "h_hdmi/ila_hdmi",
     "component_reference": "xilinx.com:ip:ila:6.2",
     "ip_revision": "19",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_ila_1_0",
@@ -6321,5 +6321,5 @@
       }
     }
   },
-  "checksum": "8ea16136"
+  "checksum": "39c16e85"
 }

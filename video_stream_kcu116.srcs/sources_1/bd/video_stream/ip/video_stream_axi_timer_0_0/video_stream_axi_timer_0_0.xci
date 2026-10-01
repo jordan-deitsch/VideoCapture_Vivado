@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_axi_timer_0_0",
-    "cell_name": "axi_timer_sleep",
+    "cell_name": "h_microblaze/axi_timer_sleep",
     "component_reference": "xilinx.com:ip:axi_timer:2.0",
     "ip_revision": "37",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_axi_timer_0_0",
@@ -485,5 +485,5 @@
       }
     }
   },
-  "checksum": "aac74d68"
+  "checksum": "ed028caf"
 }

@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_axi_uartlite_0_0",
-    "cell_name": "axi_uartlite_0",
+    "cell_name": "h_microblaze/axi_uartlite_0",
     "component_reference": "xilinx.com:ip:axi_uartlite:2.0",
     "ip_revision": "39",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_axi_uartlite_0_0",
@@ -360,5 +360,5 @@
       }
     }
   },
-  "checksum": "7ef5c976"
+  "checksum": "406914a0"
 }

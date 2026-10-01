@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_heartbeat_generator_1_0",
-    "cell_name": "hb_gen_hdmi_clk",
+    "cell_name": "h_debug_led/hb_gen_hdmi_clk",
     "component_reference": "xilinx.com:module_ref:heartbeat_generator:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_heartbeat_generator_1_0",
@@ -68,5 +68,5 @@
       }
     }
   },
-  "checksum": "b889e7fc"
+  "checksum": "d232c9cd"
 }

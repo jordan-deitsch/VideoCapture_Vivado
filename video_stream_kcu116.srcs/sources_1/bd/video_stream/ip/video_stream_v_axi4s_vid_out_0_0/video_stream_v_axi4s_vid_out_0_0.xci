@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_v_axi4s_vid_out_0_0",
-    "cell_name": "v_axi4s_vid_out_0",
+    "cell_name": "h_hdmi/v_axi4s_vid_out_hdmi",
     "component_reference": "xilinx.com:ip:v_axi4s_vid_out:4.0",
     "ip_revision": "20",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_v_axi4s_vid_out_0_0",
@@ -208,5 +208,5 @@
       }
     }
   },
-  "checksum": "cc284146"
+  "checksum": "e5a4ba20"
 }

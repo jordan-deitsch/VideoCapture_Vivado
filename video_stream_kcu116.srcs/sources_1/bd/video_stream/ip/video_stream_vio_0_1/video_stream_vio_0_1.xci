@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_vio_0_1",
-    "cell_name": "vio_vid",
+    "cell_name": "h_hdmi/vio_vid",
     "component_reference": "xilinx.com:ip:vio:3.0",
     "ip_revision": "27",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_vio_0_1",
@@ -1627,5 +1627,5 @@
       }
     }
   },
-  "checksum": "c94c152c"
+  "checksum": "96a97223"
 }

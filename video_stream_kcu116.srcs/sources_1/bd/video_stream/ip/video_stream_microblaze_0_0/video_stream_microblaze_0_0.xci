@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_microblaze_0_0",
-    "cell_name": "microblaze_0",
+    "cell_name": "h_microblaze/microblaze_0",
     "component_reference": "xilinx.com:ip:microblaze:11.0",
     "ip_revision": "16",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_microblaze_0_0",
@@ -692,5 +692,5 @@
       }
     }
   },
-  "checksum": "91b7f141"
+  "checksum": "6261bb33"
 }

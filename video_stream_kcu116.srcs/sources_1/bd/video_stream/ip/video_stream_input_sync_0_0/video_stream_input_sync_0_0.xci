@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "video_stream_input_sync_0_0",
-    "cell_name": "hdmi_int_sync",
+    "cell_name": "h_microblaze/hdmi_int_sync",
     "component_reference": "xilinx.com:module_ref:input_sync:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../video_stream_kcu116.gen/sources_1/bd/video_stream/ip/video_stream_input_sync_0_0",
@@ -62,5 +62,5 @@
       }
     }
   },
-  "checksum": "7214be66"
+  "checksum": "9cfc813e"
 }

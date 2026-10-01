@@ -1,7 +1,12 @@
-# ADV7511 I2C bus
+# HDMI I2C bus
 set_property PACKAGE_PIN AD15    [get_ports {iic_hdmi_scl_io}]
 set_property PACKAGE_PIN AE15    [get_ports {iic_hdmi_sda_io}]
 set_property IOSTANDARD LVCMOS33 [get_ports iic_hdmi_*_io]
+
+# Main I2C bus
+set_property PACKAGE_PIN AE13    [get_ports {iic_main_scl_io}]
+set_property PACKAGE_PIN AF13    [get_ports {iic_main_sda_io}]
+set_property IOSTANDARD LVCMOS33 [get_ports iic_main_*_io]
 
 # ADV7511 HDMI Driver video data    
 set_property PACKAGE_PIN W23       [get_ports adv7511_y_o[7]    ] ;# Bank  65 VCCO - VCC1V8   - IO_L11N_T1U_N9_GC_A11_D27_65
@@ -42,3 +47,13 @@ set_property PACKAGE_PIN G9        [get_ports GPIO_LED[6]   ] ;# Bank  86 VCCO -
 set_property PACKAGE_PIN G10       [get_ports GPIO_LED[7]   ] ;# Bank  86 VCCO - VCC3V3   - IO_L5P_HDGC_AD7P_86
 
 set_property IOSTANDARD  LVCMOS33  [get_ports GPIO_LED*     ] ;# Bank  86 VCCO - VCC3V3   - IO_L9N_AD3N_86
+
+##GT reference clock from Si5328 (qpll0)
+set_property PACKAGE_PIN P6 [get_ports GT_RX_REF_CLK_297M_N]
+set_property PACKAGE_PIN P7 [get_ports GT_RX_REF_CLK_297M_P]
+create_clock -period 3.367  -name mgtclk1 -waveform {0.000 1.683} [get_ports GT_RX_REF_CLK_297M_P]
+
+##GT reference clock from Si570 (qpll1)
+set_property PACKAGE_PIN M6 [get_ports GT_RX_REF_CLK_296_70M_N]
+set_property PACKAGE_PIN M7 [get_ports GT_RX_REF_CLK_296_70M_P]
+create_clock -period 3.370  -name mgtclk2 -waveform {0.000 1.685} [get_ports GT_RX_REF_CLK_296_70M_P]
