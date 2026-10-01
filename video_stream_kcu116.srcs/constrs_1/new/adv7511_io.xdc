@@ -49,11 +49,15 @@ set_property PACKAGE_PIN G10       [get_ports GPIO_LED[7]   ] ;# Bank  86 VCCO -
 set_property IOSTANDARD  LVCMOS33  [get_ports GPIO_LED*     ] ;# Bank  86 VCCO - VCC3V3   - IO_L9N_AD3N_86
 
 ##GT reference clock from Si5328 (qpll0)
-set_property PACKAGE_PIN P6 [get_ports GT_RX_REF_CLK_297M_N]
 set_property PACKAGE_PIN P7 [get_ports GT_RX_REF_CLK_297M_P]
+set_property PACKAGE_PIN P6 [get_ports GT_RX_REF_CLK_297M_N]
 create_clock -period 3.367  -name mgtclk1 -waveform {0.000 1.683} [get_ports GT_RX_REF_CLK_297M_P]
 
 ##GT reference clock from Si570 (qpll1)
-set_property PACKAGE_PIN M6 [get_ports GT_RX_REF_CLK_296_70M_N]
 set_property PACKAGE_PIN M7 [get_ports GT_RX_REF_CLK_296_70M_P]
+set_property PACKAGE_PIN M6 [get_ports GT_RX_REF_CLK_296_70M_N]
 create_clock -period 3.370  -name mgtclk2 -waveform {0.000 1.685} [get_ports GT_RX_REF_CLK_296_70M_P]
+
+# SDI TX pins to SFP0
+set_property PACKAGE_PIN N5 [get_ports SDI_TXP]
+set_property PACKAGE_PIN N4 [get_ports SDI_TXN]

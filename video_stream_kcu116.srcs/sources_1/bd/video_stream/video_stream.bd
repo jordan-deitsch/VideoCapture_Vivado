@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x38E232B68E540C54",
+      "boundary_crc": "0xD97177599F6B5149",
       "device": "xcku5p-ffvb676-2-e",
       "gen_directory": "../../../../video_stream_kcu116.gen/sources_1/bd/video_stream",
       "name": "video_stream",
@@ -482,6 +482,12 @@
             "value_src": "default"
           }
         }
+      },
+      "SDI_TXP": {
+        "direction": "O"
+      },
+      "SDI_TXN": {
+        "direction": "O"
       }
     },
     "components": {
@@ -2632,12 +2638,6 @@
             "left": "0",
             "right": "0"
           },
-          "intf_0_qpll0outrefclk_out": {
-            "direction": "O"
-          },
-          "intf_0_qpll1outrefclk_out": {
-            "direction": "O"
-          },
           "s_axi_aclk": {
             "type": "clk",
             "direction": "I"
@@ -2645,6 +2645,12 @@
           "s_axi_aresetn": {
             "type": "rst",
             "direction": "I"
+          },
+          "intf_0_txp_0": {
+            "direction": "O"
+          },
+          "intf_0_txn_0": {
+            "direction": "O"
           }
         },
         "components": {
@@ -3134,16 +3140,10 @@
               "uhdsdi_gt_0/cmp_gt_ctrl"
             ]
           },
-          "uhdsdi_gt_0_intf_0_qpll0outrefclk_out": {
+          "uhdsdi_gt_0_intf_0_txn": {
             "ports": [
-              "uhdsdi_gt_0/intf_0_qpll0outrefclk_out",
-              "intf_0_qpll0outrefclk_out"
-            ]
-          },
-          "uhdsdi_gt_0_intf_0_qpll1outrefclk_out": {
-            "ports": [
-              "uhdsdi_gt_0/intf_0_qpll1outrefclk_out",
-              "intf_0_qpll1outrefclk_out"
+              "uhdsdi_gt_0/intf_0_txn",
+              "intf_0_txn_0"
             ]
           },
           "uhdsdi_gt_0_intf_0_txoutclk": {
@@ -3157,19 +3157,17 @@
               "v_smpte_uhdsdi_tx_ss_0/video_in_clk",
               "axi_crossbar_sdi/aclk"
             ]
+          },
+          "uhdsdi_gt_0_intf_0_txp": {
+            "ports": [
+              "uhdsdi_gt_0/intf_0_txp",
+              "intf_0_txp_0"
+            ]
           }
         }
       },
       "h_debug_led": {
         "ports": {
-          "qpll1_clk": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "qpll0_clk": {
-            "type": "clk",
-            "direction": "I"
-          },
           "logic_clk": {
             "type": "clk",
             "direction": "I"
@@ -3205,7 +3203,21 @@
             "ports": {
               "clk": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "148437500",
+                    "value_src": "ip_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "ip_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "video_stream_clk_wiz_0_0_logic_clk",
+                    "value_src": "ip_prop"
+                  }
+                }
               },
               "heartbeat_counter": {
                 "direction": "O",
@@ -3242,7 +3254,21 @@
             "ports": {
               "clk": {
                 "type": "clk",
-                "direction": "I"
+                "direction": "I",
+                "parameters": {
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "ip_prop"
+                  },
+                  "PHASE": {
+                    "value": "0.0",
+                    "value_src": "ip_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "video_stream_clk_wiz_0_0_logic_clk",
+                    "value_src": "default_prop"
+                  }
+                }
               },
               "heartbeat_counter": {
                 "direction": "O",
@@ -3392,13 +3418,15 @@
           "clk_wiz_0_clk_out1": {
             "ports": [
               "hdmi_clk",
-              "hb_gen_hdmi_clk/clk"
+              "hb_gen_hdmi_clk/clk",
+              "hb_qpll1_296p70/clk"
             ]
           },
           "clk_wiz_0_logic_clk": {
             "ports": [
               "logic_clk",
-              "hb_logic_clk/clk"
+              "hb_logic_clk/clk",
+              "hb_qpll0_297/clk"
             ]
           },
           "h_xdma_gpio_io_o": {
@@ -3435,18 +3463,6 @@
             "ports": [
               "ilconcat_0/dout",
               "GPIO_LED"
-            ]
-          },
-          "uhdsdi_gt_0_intf_0_qpll0outrefclk_out": {
-            "ports": [
-              "qpll0_clk",
-              "hb_qpll0_297/clk"
-            ]
-          },
-          "uhdsdi_gt_0_intf_0_qpll1outrefclk_out": {
-            "ports": [
-              "qpll1_clk",
-              "hb_qpll1_296p70/clk"
             ]
           }
         }
@@ -3587,6 +3603,18 @@
           "h_sdi/s_axi_aclk"
         ]
       },
+      "h_sdi_intf_0_txn_0": {
+        "ports": [
+          "h_sdi/intf_0_txn_0",
+          "SDI_TXN"
+        ]
+      },
+      "h_sdi_intf_0_txp_0": {
+        "ports": [
+          "h_sdi/intf_0_txp_0",
+          "SDI_TXP"
+        ]
+      },
       "h_xdma_gpio_io_o": {
         "ports": [
           "h_xdma/gpio_io_o",
@@ -3617,18 +3645,6 @@
           "h_microblaze/peripheral_aresetn",
           "h_hdmi/s_axi_aresetn",
           "h_sdi/s_axi_aresetn"
-        ]
-      },
-      "uhdsdi_gt_0_intf_0_qpll0outrefclk_out": {
-        "ports": [
-          "h_sdi/intf_0_qpll0outrefclk_out",
-          "h_debug_led/qpll0_clk"
-        ]
-      },
-      "uhdsdi_gt_0_intf_0_qpll1outrefclk_out": {
-        "ports": [
-          "h_sdi/intf_0_qpll1outrefclk_out",
-          "h_debug_led/qpll1_clk"
         ]
       }
     },
