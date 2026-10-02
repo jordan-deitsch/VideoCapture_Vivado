@@ -59,5 +59,5 @@ set_property PACKAGE_PIN M6 [get_ports GT_RX_REF_CLK_296_70M_N]
 create_clock -period 3.370  -name mgtclk2 -waveform {0.000 1.685} [get_ports GT_RX_REF_CLK_296_70M_P]
 
 # SDI TX pins to SFP0
-set_property PACKAGE_PIN N5 [get_ports SDI_TXP]
-set_property PACKAGE_PIN N4 [get_ports SDI_TXN]
+set_property PACKAGE_PIN N5 [get_ports SDI_TX_P]
+set_property PACKAGE_PIN N4 [get_ports SDI_TX_N]

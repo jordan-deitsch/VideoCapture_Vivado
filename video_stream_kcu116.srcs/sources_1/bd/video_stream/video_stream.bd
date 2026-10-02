@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD97177599F6B5149",
+      "boundary_crc": "0xCEE21F708D1696E3",
       "device": "xcku5p-ffvb676-2-e",
       "gen_directory": "../../../../video_stream_kcu116.gen/sources_1/bd/video_stream",
       "name": "video_stream",
@@ -64,14 +64,17 @@
         "axi_crossbar_sdi": "",
         "ilvector_logic_rst_1": "",
         "ilconstant_sb_reset": "",
-        "uhdsdi_cmp_gt_ctrl_0": ""
+        "uhdsdi_cmp_gt_ctrl_0": "",
+        "ilslice_0": "",
+        "ilslice_1": "",
+        "ila_sdi": ""
       },
       "h_debug_led": {
-        "hb_qpll1_296p70": "",
-        "hb_qpll0_297": "",
+        "hb_sdi_txout": "",
         "hb_logic_clk": "",
         "hb_gen_hdmi_clk": "",
-        "ilconcat_0": ""
+        "ilconcat_0": "",
+        "ilconstant_0": ""
       }
     },
     "interface_ports": {
@@ -345,7 +348,7 @@
             "value_src": "ip_prop"
           },
           "SENSITIVITY": {
-            "value": "NULL:NULL:NULL:EDGE_RISING:NULL",
+            "value": "NULL:NULL:NULL:NULL:NULL:EDGE_RISING:EDGE_RISING:NULL",
             "value_src": "ip_prop"
           }
         }
@@ -483,10 +486,10 @@
           }
         }
       },
-      "SDI_TXP": {
+      "SDI_TX_P": {
         "direction": "O"
       },
-      "SDI_TXN": {
+      "SDI_TX_N": {
         "direction": "O"
       }
     },
@@ -602,7 +605,7 @@
           },
           "gpio_io_o": {
             "direction": "O",
-            "left": "3",
+            "left": "0",
             "right": "0"
           }
         },
@@ -698,7 +701,7 @@
             "has_run_ip_tcl": "true",
             "parameters": {
               "C_GPIO_WIDTH": {
-                "value": "4"
+                "value": "1"
               },
               "GPIO_BOARD_INTERFACE": {
                 "value": "Custom"
@@ -803,10 +806,10 @@
               }
             }
           },
-          "iic_main": {
+          "M06_AXI": {
             "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:iic:1.0",
-            "vlnv": "xilinx.com:interface:iic_rtl:1.0",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
             "hdl_attributes": {
               "LOCKED": {
                 "value": "FALSE",
@@ -814,10 +817,10 @@
               }
             }
           },
-          "M06_AXI": {
+          "iic_main": {
             "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "vlnv_bus_definition": "xilinx.com:interface:iic:1.0",
+            "vlnv": "xilinx.com:interface:iic_rtl:1.0",
             "hdl_attributes": {
               "LOCKED": {
                 "value": "FALSE",
@@ -857,6 +860,12 @@
             "inst_hier_path": "h_microblaze/axi_iic_hdmi",
             "has_run_ip_tcl": "true",
             "parameters": {
+              "C_SCL_INERTIAL_DELAY": {
+                "value": "4"
+              },
+              "C_SDA_INERTIAL_DELAY": {
+                "value": "4"
+              },
               "IIC_BOARD_INTERFACE": {
                 "value": "Custom"
               },
@@ -1431,8 +1440,17 @@
             "inst_hier_path": "h_microblaze/axi_iic_main",
             "has_run_ip_tcl": "true",
             "parameters": {
+              "C_SCL_INERTIAL_DELAY": {
+                "value": "4"
+              },
+              "C_SDA_INERTIAL_DELAY": {
+                "value": "4"
+              },
               "IIC_BOARD_INTERFACE": {
                 "value": "Custom"
+              },
+              "USE_BOARD_FLOW": {
+                "value": "true"
               }
             }
           },
@@ -1676,16 +1694,16 @@
           }
         },
         "interface_nets": {
+          "Conn1": {
+            "interface_ports": [
+              "axi_iic_main/IIC",
+              "iic_main"
+            ]
+          },
           "axi_iic_0_IIC": {
             "interface_ports": [
               "iic_hdmi",
               "axi_iic_hdmi/IIC"
-            ]
-          },
-          "axi_iic_main_IIC": {
-            "interface_ports": [
-              "iic_main",
-              "axi_iic_main/IIC"
             ]
           },
           "axi_uartlite_0_UART": {
@@ -2651,6 +2669,22 @@
           },
           "intf_0_txn_0": {
             "direction": "O"
+          },
+          "txout_clk": {
+            "type": "clk",
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "Dout": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
+          "Dout1": {
+            "direction": "O",
+            "left": "0",
+            "right": "0"
           }
         },
         "components": {
@@ -2999,6 +3033,47 @@
                 "right": "0"
               }
             }
+          },
+          "ilslice_0": {
+            "vlnv": "xilinx.com:inline_hdl:ilslice:1.0",
+            "parameters": {
+              "DIN_WIDTH": {
+                "value": "64"
+              }
+            }
+          },
+          "ilslice_1": {
+            "vlnv": "xilinx.com:inline_hdl:ilslice:1.0",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "1"
+              },
+              "DIN_TO": {
+                "value": "1"
+              },
+              "DIN_WIDTH": {
+                "value": "64"
+              }
+            }
+          },
+          "ila_sdi": {
+            "vlnv": "xilinx.com:ip:ila:6.2",
+            "ip_revision": "19",
+            "xci_name": "video_stream_ila_0_0",
+            "xci_path": "ip/video_stream_ila_0_0/video_stream_ila_0_0.xci",
+            "inst_hier_path": "h_sdi/ila_sdi",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "C_DATA_DEPTH": {
+                "value": "2048"
+              },
+              "C_MONITOR_TYPE": {
+                "value": "Native"
+              },
+              "C_PROBE0_WIDTH": {
+                "value": "64"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -3106,6 +3181,18 @@
               "uhdsdi_gt_0/intf_0_sb_tx_rst"
             ]
           },
+          "ilslice_0_Dout": {
+            "ports": [
+              "ilslice_0/Dout",
+              "Dout"
+            ]
+          },
+          "ilslice_1_Dout": {
+            "ports": [
+              "ilslice_1/Dout",
+              "Dout1"
+            ]
+          },
           "ilvector_logic_0_Res": {
             "ports": [
               "ilvector_logic_rst/Res",
@@ -3124,7 +3211,8 @@
               "s_axi_aclk",
               "axi_cc_sdi/s_axi_aclk",
               "uhdsdi_gt_0/drpclk_in",
-              "uhdsdi_cmp_gt_ctrl_0/s_axi_aclk"
+              "uhdsdi_cmp_gt_ctrl_0/s_axi_aclk",
+              "ila_sdi/clk"
             ]
           },
           "s_axi_aresetn_1": {
@@ -3138,6 +3226,14 @@
             "ports": [
               "uhdsdi_cmp_gt_ctrl_0/cmp_gt_ctrl",
               "uhdsdi_gt_0/cmp_gt_ctrl"
+            ]
+          },
+          "uhdsdi_gt_0_cmp_gt_sts": {
+            "ports": [
+              "uhdsdi_gt_0/cmp_gt_sts",
+              "ilslice_0/Din",
+              "ilslice_1/Din",
+              "ila_sdi/probe0"
             ]
           },
           "uhdsdi_gt_0_intf_0_txn": {
@@ -3155,7 +3251,8 @@
               "v_sdi_tpg/ap_clk",
               "v_smpte_uhdsdi_tx_ss_0/s_axi_aclk",
               "v_smpte_uhdsdi_tx_ss_0/video_in_clk",
-              "axi_crossbar_sdi/aclk"
+              "axi_crossbar_sdi/aclk",
+              "txout_clk"
             ]
           },
           "uhdsdi_gt_0_intf_0_txp": {
@@ -3178,74 +3275,45 @@
           },
           "xdma_gpio": {
             "direction": "I",
-            "left": "3",
+            "left": "0",
             "right": "0"
           },
           "GPIO_LED": {
             "direction": "O",
             "left": "7",
             "right": "0"
+          },
+          "qpll0_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "In3": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
+          },
+          "In4": {
+            "direction": "I",
+            "left": "0",
+            "right": "0"
           }
         },
         "components": {
-          "hb_qpll1_296p70": {
-            "vlnv": "xilinx.com:module_ref:heartbeat_generator:1.0",
-            "ip_revision": "1",
-            "xci_name": "video_stream_heartbeat_generator_1_1",
-            "xci_path": "ip/video_stream_heartbeat_generator_1_1/video_stream_heartbeat_generator_1_1.xci",
-            "inst_hier_path": "h_debug_led/hb_qpll1_296p70",
-            "has_run_ip_tcl": "true",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "heartbeat_generator",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "FREQ_HZ": {
-                    "value": "148437500",
-                    "value_src": "ip_prop"
-                  },
-                  "PHASE": {
-                    "value": "0.0",
-                    "value_src": "ip_prop"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "video_stream_clk_wiz_0_0_logic_clk",
-                    "value_src": "ip_prop"
-                  }
-                }
-              },
-              "heartbeat_counter": {
-                "direction": "O",
-                "left": "26",
-                "right": "0"
-              },
-              "heartbeat": {
-                "direction": "O",
-                "parameters": {
-                  "PortType": {
-                    "value": "undef",
-                    "value_src": "ip_prop"
-                  },
-                  "PortType.PROP_SRC": {
-                    "value": "false",
-                    "value_src": "ip_prop"
-                  }
-                }
-              }
-            }
-          },
-          "hb_qpll0_297": {
+          "hb_sdi_txout": {
             "vlnv": "xilinx.com:module_ref:heartbeat_generator:1.0",
             "ip_revision": "1",
             "xci_name": "video_stream_heartbeat_generator_0_1",
             "xci_path": "ip/video_stream_heartbeat_generator_0_1/video_stream_heartbeat_generator_0_1.xci",
-            "inst_hier_path": "h_debug_led/hb_qpll0_297",
+            "inst_hier_path": "h_debug_led/hb_sdi_txout",
             "has_run_ip_tcl": "true",
+            "parameters": {
+              "P_COMPARATOR": {
+                "value": "50000000"
+              },
+              "P_MAX_COUNT": {
+                "value": "100000000"
+              }
+            },
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "heartbeat_generator",
@@ -3257,15 +3325,11 @@
                 "direction": "I",
                 "parameters": {
                   "FREQ_HZ": {
-                    "value": "100000000",
-                    "value_src": "ip_prop"
-                  },
-                  "PHASE": {
-                    "value": "0.0",
-                    "value_src": "ip_prop"
+                    "value": "297000000",
+                    "value_src": "const_prop"
                   },
                   "CLK_DOMAIN": {
-                    "value": "video_stream_clk_wiz_0_0_logic_clk",
+                    "value": "video_stream_uhdsdi_gt_0_0_intf_0_txoutclk",
                     "value_src": "default_prop"
                   }
                 }
@@ -3305,6 +3369,14 @@
             "xci_path": "ip/video_stream_heartbeat_generator_0_0/video_stream_heartbeat_generator_0_0.xci",
             "inst_hier_path": "h_debug_led/hb_logic_clk",
             "has_run_ip_tcl": "true",
+            "parameters": {
+              "P_COMPARATOR": {
+                "value": "50000000"
+              },
+              "P_MAX_COUNT": {
+                "value": "100000000"
+              }
+            },
             "reference_info": {
               "ref_type": "hdl",
               "ref_name": "heartbeat_generator",
@@ -3376,7 +3448,25 @@
                 "right": "0"
               },
               "heartbeat": {
-                "direction": "O"
+                "direction": "O",
+                "parameters": {
+                  "PortType": {
+                    "value": "intr",
+                    "value_src": "ip_prop"
+                  },
+                  "PortType.PROP_SRC": {
+                    "value": "false",
+                    "value_src": "ip_prop"
+                  },
+                  "PortWidth": {
+                    "value": "1",
+                    "value_src": "default_prop"
+                  },
+                  "SENSITIVITY": {
+                    "value": "EDGE_RISING",
+                    "value_src": "user_prop"
+                  }
+                }
               }
             }
           },
@@ -3384,7 +3474,7 @@
             "vlnv": "xilinx.com:inline_hdl:ilconcat:1.0",
             "parameters": {
               "IN0_WIDTH": {
-                "value": "4",
+                "value": "1",
                 "value_src": "propagated",
                 "value_mode": "manual"
               },
@@ -3408,54 +3498,70 @@
                 "value_src": "propagated",
                 "value_mode": "auto"
               },
+              "IN5_WIDTH": {
+                "value": "1",
+                "value_src": "propagated",
+                "value_mode": "auto"
+              },
+              "IN6_WIDTH": {
+                "value": "1",
+                "value_src": "propagated",
+                "value_mode": "auto"
+              },
+              "IN7_WIDTH": {
+                "value": "1",
+                "value_src": "propagated",
+                "value_mode": "auto"
+              },
               "NUM_PORTS": {
-                "value": "5"
+                "value": "8"
               }
             }
+          },
+          "ilconstant_0": {
+            "vlnv": "xilinx.com:inline_hdl:ilconstant:1.0"
           }
         },
         "nets": {
+          "In3_1": {
+            "ports": [
+              "In3",
+              "ilconcat_0/In3"
+            ]
+          },
+          "In4_1": {
+            "ports": [
+              "In4",
+              "ilconcat_0/In4"
+            ]
+          },
+          "clk_1": {
+            "ports": [
+              "qpll0_clk",
+              "hb_sdi_txout/clk"
+            ]
+          },
           "clk_wiz_0_clk_out1": {
             "ports": [
               "hdmi_clk",
-              "hb_gen_hdmi_clk/clk",
-              "hb_qpll1_296p70/clk"
-            ]
-          },
-          "clk_wiz_0_logic_clk": {
-            "ports": [
-              "logic_clk",
-              "hb_logic_clk/clk",
-              "hb_qpll0_297/clk"
-            ]
-          },
-          "h_xdma_gpio_io_o": {
-            "ports": [
-              "xdma_gpio",
-              "ilconcat_0/In0"
+              "hb_gen_hdmi_clk/clk"
             ]
           },
           "hb_gen_hdmi_clk_heartbeat": {
             "ports": [
               "hb_gen_hdmi_clk/heartbeat",
-              "ilconcat_0/In4"
+              "ilconcat_0/In1"
             ]
           },
           "hb_logic_clk_heartbeat": {
             "ports": [
               "hb_logic_clk/heartbeat",
-              "ilconcat_0/In3"
+              "ilconcat_0/In0"
             ]
           },
-          "hb_qpll0_297_heartbeat": {
+          "hb_sdi_txout_heartbeat": {
             "ports": [
-              "hb_qpll0_297/heartbeat",
-              "ilconcat_0/In1"
-            ]
-          },
-          "hb_qpll1_296p70_heartbeat": {
-            "ports": [
-              "hb_qpll1_296p70/heartbeat",
+              "hb_sdi_txout/heartbeat",
               "ilconcat_0/In2"
             ]
           },
@@ -3463,6 +3569,25 @@
             "ports": [
               "ilconcat_0/dout",
               "GPIO_LED"
+            ]
+          },
+          "ilconstant_0_dout": {
+            "ports": [
+              "ilconstant_0/dout",
+              "ilconcat_0/In6",
+              "ilconcat_0/In7"
+            ]
+          },
+          "logic_clk_1": {
+            "ports": [
+              "logic_clk",
+              "hb_logic_clk/clk"
+            ]
+          },
+          "xdma_gpio_1": {
+            "ports": [
+              "xdma_gpio",
+              "ilconcat_0/In5"
             ]
           }
         }
@@ -3481,12 +3606,6 @@
           "h_microblaze/iic_hdmi"
         ]
       },
-      "axi_iic_main_IIC": {
-        "interface_ports": [
-          "iic_main",
-          "h_microblaze/iic_main"
-        ]
-      },
       "axi_uartlite_0_UART": {
         "interface_ports": [
           "rs232_uart",
@@ -3497,6 +3616,12 @@
         "interface_ports": [
           "default_sysclk1_300",
           "clk_wiz_0/CLK_IN1_D"
+        ]
+      },
+      "h_microblaze_iic_main": {
+        "interface_ports": [
+          "iic_main",
+          "h_microblaze/iic_main"
         ]
       },
       "microblaze_0_axi_periph_M05_AXI": {
@@ -3603,16 +3728,34 @@
           "h_sdi/s_axi_aclk"
         ]
       },
+      "h_sdi_Dout": {
+        "ports": [
+          "h_sdi/Dout",
+          "h_debug_led/In3"
+        ]
+      },
+      "h_sdi_Dout1": {
+        "ports": [
+          "h_sdi/Dout1",
+          "h_debug_led/In4"
+        ]
+      },
+      "h_sdi_intf_0_qpll0outrefclk_out": {
+        "ports": [
+          "h_sdi/txout_clk",
+          "h_debug_led/qpll0_clk"
+        ]
+      },
       "h_sdi_intf_0_txn_0": {
         "ports": [
           "h_sdi/intf_0_txn_0",
-          "SDI_TXN"
+          "SDI_TX_N"
         ]
       },
       "h_sdi_intf_0_txp_0": {
         "ports": [
           "h_sdi/intf_0_txp_0",
-          "SDI_TXP"
+          "SDI_TX_P"
         ]
       },
       "h_xdma_gpio_io_o": {
